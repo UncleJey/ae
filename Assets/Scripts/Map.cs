@@ -10,20 +10,18 @@ public class Map : MonoBehaviour
     [SerializeField] private Tilemap tilemap;
     private static Map Instance;
 
-    [SerializeField] private TileBase[]  walkable;
+    [SerializeField] private TileBase[] walkable;
 
     private void Start()
     {
         Instance = this;
     }
 
-    public static TileBase GetCell(Vector3 pos)
+    public static bool GetCell(Vector3 pos, out TileBase tb, out Vector3Int cell)
     {
-        Vector3Int cell = Instance.grid.WorldToCell(pos);
-        TileBase tb = Instance.tilemap.GetTile(cell);
-
-        //Instance.tilemap.SetTile(cell, null);
-        return tb;
+        cell = Instance.grid.WorldToCell(pos);
+        tb = Instance.tilemap.GetTile(cell);
+        return tb != null;
     }
 
     /// <summary>
@@ -33,8 +31,8 @@ public class Map : MonoBehaviour
     {
         if (tb == null)
             return nullIsTrue;
-        
-        for (int i=Instance.walkable.Length-1; i>=0; i--)
+
+        for (int i = Instance.walkable.Length - 1; i >= 0; i--)
             if (Instance.walkable[i].Equals(tb))
                 return true;
         return false;
@@ -42,6 +40,56 @@ public class Map : MonoBehaviour
 
     public static bool Walkable(Vector3 pPoint)
     {
-        return Walkable(GetCell(pPoint));
+        GetCell(pPoint, out TileBase tb, out Vector3Int cell);
+        return Walkable(tb);
     }
+
+    public static Vector3 CellToWorld(Vector3Int pPoint)
+    {
+        return Instance.grid.CellToWorld(pPoint);
+    }
+
+    public static Vector3Int WorldToCell(Vector3 pPoint)
+    {
+        return Instance.grid.WorldToCell(pPoint);
+    }
+
+    public static Vector3 Trim(Vector3 pPoint)
+    {
+        return CellToWorld(WorldToCell(pPoint));
+    }
+
+    /// <summary>
+    /// размер ячейки
+    /// </summary>
+    public static Vector3 CellSize => Instance.grid.cellSize;
+
+    public static string Serialize()
+    {
+        string data = "";
+        Vector3Int v = Vector3Int.zero;
+        for (int i = -20; i < 20; i++)
+        {
+            v.x = i;
+            string line = "";
+            bool was = false;
+            for (int j = -20; j < 20; j++)
+            {
+                v.y = j;
+                TileBase tb = Instance.tilemap.GetTile(v);
+                if (tb != null)
+                {
+                    line += tb.name;
+                    was = true;
+                }
+
+                line += ",";
+            }
+            if (was)
+                data += $"{i}:{line}\r\n";
+        }
+
+        return data;
+    }
+    
 }

@@ -12,7 +12,7 @@ public class Enemy : PCBase
 
         // если пола нет
         Vector3 pnt = new Vector3(direction > 0 ? 0.15f : -0.15f, -0.03f);
-        if (Map.GetCell(transform.position + pnt) == null)
+        if (!Map.GetCell(transform.position + pnt, out var tb, out var cell) )
         {
             direction = -direction;
             return;
@@ -29,4 +29,5 @@ public class Enemy : PCBase
         Move(direction, 0);
         Rotate = direction > 0;
     }
+
 }

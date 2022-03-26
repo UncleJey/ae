@@ -3846,6 +3846,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7394344810401758780, guid: d33390da99b54624c9bbdde16b9cd438,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7394344810401758781, guid: d33390da99b54624c9bbdde16b9cd438,
         type: 3}
       propertyPath: m_Name
@@ -3859,7 +3864,7 @@ PrefabInstance:
     - target: {fileID: 7394344810401758783, guid: d33390da99b54624c9bbdde16b9cd438,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.46
+      value: -1.37
       objectReference: {fileID: 0}
     - target: {fileID: 7394344810401758783, guid: d33390da99b54624c9bbdde16b9cd438,
         type: 3}
