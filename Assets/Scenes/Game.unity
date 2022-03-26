@@ -3848,8 +3848,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7394344810401758780, guid: d33390da99b54624c9bbdde16b9cd438,
         type: 3}
-      propertyPath: m_SpriteSortPoint
-      value: 0
+      propertyPath: m_Size.x
+      value: 0.90087986
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394344810401758780, guid: d33390da99b54624c9bbdde16b9cd438,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.75000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394344810401758780, guid: d33390da99b54624c9bbdde16b9cd438,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8793639957104055765, guid: 9c447c54c8e0416e9446cadb88c48fd3,
+        type: 3}
+    - target: {fileID: 7394344810401758780, guid: d33390da99b54624c9bbdde16b9cd438,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7394344810401758781, guid: d33390da99b54624c9bbdde16b9cd438,
         type: 3}

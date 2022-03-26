@@ -118,6 +118,7 @@ MonoBehaviour:
   sprite: {fileID: 7394344810401758780}
   speed: 1.75
   animator: {fileID: 7394344810401758782}
+  flipped: 1
   dn: {x: 0, y: -0.03, z: 0}
   up: {x: 0, y: 0.35, z: 0}
   lf: {x: -0.2, y: 0.2, z: 0}

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -23,7 +24,11 @@ public class Hero : PCBase
         Debug.Log(Map.CellSize.x);
     }
 
-    public override void Move(int moveX, int moveY, float pSpeed = 0)
+    /// <summary>
+    /// В какой последней ячейке продолжалось падение
+    /// </summary>
+    private Vector3Int _fallFlow = Vector3Int.zero;
+    public override void Move(int moveX, int moveY, float pSpeed = 0, bool pFall = false)
     {
         TileBase tb = null;
         Vector3Int cell = Vector3Int.zero;
@@ -38,9 +43,15 @@ public class Hero : PCBase
             moveY = 1;
             moveX = 0;
             actionSpeed = pSpeed + pSpeed;
+            pFall = true;
+            _fallFlow = cell;
         }
         else
         {
+            if (!_fallFlow.Equals(Vector3Int.zero)) // выравниваем позицию на платформе после падения
+                position = Map.CellToWorld(_fallFlow);
+            _fallFlow = Vector3Int.zero;
+
             if (moveX > 0)
             {
                 Map.GetCell(transform.position + rt, out tb, out cell);
@@ -65,6 +76,7 @@ public class Hero : PCBase
                 if (!Map.Walkable(tb, false))
                     moveY = 0;
             }
+
         }
 
         // поправка позиции при переходе с вертикального перемещения на горизонтальное
@@ -101,7 +113,7 @@ public class Hero : PCBase
             else
                 position = new Vector3(cellpos.x, pos.y);
         }
-        base.Move(moveX, moveY, actionSpeed);
+        base.Move(moveX, moveY, actionSpeed, pFall);
     }
 
 #if UNITY_EDITOR
