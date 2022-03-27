@@ -44,6 +44,8 @@ SpriteAtlas:
     packables:
     - {fileID: 102900000, guid: 692d6297e613794419ee815a03621791, type: 3}
     - {fileID: 2800000, guid: 6394d76429ab33f48856c0632679fac0, type: 3}
+    - {fileID: 2800000, guid: 82c6affe35a703147ba1e0cd6bb6de8f, type: 3}
+    - {fileID: 2800000, guid: 75b09aa8b7b5b40d5b1ec1fd028bc4f6, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -230,6 +232,11 @@ SpriteAtlas:
   - {fileID: 8826643185466035085, guid: bb842fe46e994e6b903ffa8af9ae0f36, type: 3}
   - {fileID: -5087960860256619247, guid: bb842fe46e994e6b903ffa8af9ae0f36, type: 3}
   - {fileID: -8398666523667270345, guid: bb842fe46e994e6b903ffa8af9ae0f36, type: 3}
+  - {fileID: 2116816671894470174, guid: 75b09aa8b7b5b40d5b1ec1fd028bc4f6, type: 3}
+  - {fileID: 8392812468337901003, guid: 75b09aa8b7b5b40d5b1ec1fd028bc4f6, type: 3}
+  - {fileID: 4235482442304257095, guid: 75b09aa8b7b5b40d5b1ec1fd028bc4f6, type: 3}
+  - {fileID: 7350269465760345267, guid: 75b09aa8b7b5b40d5b1ec1fd028bc4f6, type: 3}
+  - {fileID: 21300000, guid: 82c6affe35a703147ba1e0cd6bb6de8f, type: 3}
   m_PackedSpriteNamesToIndex:
   - idle_4
   - idle_5
@@ -414,5 +421,10 @@ SpriteAtlas:
   - throw_22
   - throw_38
   - throw_23
+  - Charger - 1x_0
+  - Charger - 1x_1
+  - Charger - 1x_2
+  - Charger - 1x_3
+  - blue
   m_Tag: Main
   m_IsVariant: 0

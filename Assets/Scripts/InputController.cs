@@ -15,7 +15,11 @@ public class InputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.A))
+        {
+            hero.Flip();
+        }
+        else if (Input.GetKey(KeyCode.RightArrow))
         {
             hero.Move(1, 0);
         }

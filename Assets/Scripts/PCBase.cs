@@ -8,7 +8,7 @@ public abstract class PCBase : MonoBehaviour
     private static readonly int MoveName = Animator.StringToHash("move");
     private static readonly int SideUp = Animator.StringToHash("up");
 
-    [SerializeField] protected SpriteRenderer sprite;
+    public SpriteRenderer sprite;
     [SerializeField] protected float speed = 1f;
     [SerializeField] protected Animator animator;
     [SerializeField] protected bool flipped = false;

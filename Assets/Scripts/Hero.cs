@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -9,7 +8,8 @@ public class Hero : PCBase
     [SerializeField] Vector3 up = new Vector3(0, 0.35f, 0);
     [SerializeField] Vector3 lf = new Vector3(-0.2f, 0.2f, 0);
     [SerializeField] Vector3 rt = new Vector3(0.2f, 0.2f, 0);
-
+    [SerializeField] Vector3 center = new Vector3(0,0,0);
+    
     Vector3 delta = new Vector3(-0.15f, 0, 0);
 
     public Vector3 position
@@ -18,10 +18,14 @@ public class Hero : PCBase
         set => transform.position = value - delta;
     }
 
+    private void Awake()
+    {
+        sprite = GetComponent<SpriteRenderer>();
+    }
+
     private void Start()
     {
         position = Map.Trim(position);
-        Debug.Log(Map.CellSize.x);
     }
 
     /// <summary>
@@ -30,6 +34,9 @@ public class Hero : PCBase
     private Vector3Int _fallFlow = Vector3Int.zero;
     public override void Move(int moveX, int moveY, float pSpeed = 0, bool pFall = false)
     {
+        if (_flipping)
+            return;
+        
         TileBase tb = null;
         Vector3Int cell = Vector3Int.zero;
         if (pSpeed < 0.01f && pSpeed > -0.01f)
@@ -116,11 +123,81 @@ public class Hero : PCBase
         base.Move(moveX, moveY, actionSpeed, pFall);
     }
 
+    /// <summary>
+    /// В настоящий момент происходит обмен телами
+    /// </summary>
+    private bool _flipping = false;
+
+    /// <summary>
+    /// Когда последний раз был обмен
+    /// </summary>
+    private float lastFlipTime = 0;
+    
+    /// <summary>
+    /// Процесс обмена телами
+    /// </summary>
+    IEnumerator FlipToPos(Vector3 pPosition)
+    {
+        Time.timeScale = 0.1f;
+//        bool mirrored = false;
+        while ((transform.position - pPosition).sqrMagnitude > 0.01f)
+        {
+            /* не работает по какой-то причине
+            if (!mirrored && (transform.position - AlterHero.position).sqrMagnitude < 1.5f)
+            {
+                Rotate = !Rotate;
+                mirrored = true;
+            }
+            */
+            if (transform == null)
+            {
+                Time.timeScale = 1;
+                _flipping = false;
+                yield break;                
+            }
+            transform.position = Vector3.MoveTowards(transform.position, pPosition, Time.deltaTime * 50 * speed);
+            yield return null;
+        }
+        yield return null;
+        transform.position = pPosition;
+        Time.timeScale = 1;
+        _flipping = false;
+    }
+
+    /// <summary>
+    /// Может ли обменяться телами если алтер находится в этом тайле
+    /// </summary>
+    bool CanFlip()
+    {
+        Map.GetCell(AlterHero.position + center, out var tb, out var cell);
+        return Map.Walkable(tb);
+    }
+    
+    /// <summary>
+    /// Обменяться телами
+    /// </summary>
+    public void Flip()
+    {
+        if (_flipping || !CanFlip())
+            return;
+
+        if (Time.time - lastFlipTime < 1) // не меняться слишком часто
+            return;
+
+        lastFlipTime = Time.time;
+        
+        _flipping = true;
+        StartCoroutine(FlipToPos(AlterHero.position));
+    }
+
 #if UNITY_EDITOR
     public void FixedUpdate()
     {
         Debug.DrawLine(transform.position + dn, transform.position + up, Color.red);
-        Debug.DrawLine(transform.position + lf, transform.position + rt, Color.red);
+        Debug.DrawLine(transform.position + lf, transform.position + rt, Color.blue);
+
+        Debug.DrawLine(transform.position + center + new Vector3(-0.01f, -0.01f), transform.position + center + new Vector3(0.01f, 0.01f), Color.black);
+        Debug.DrawLine(transform.position + center + new Vector3(0.01f, -0.01f), transform.position + center + new Vector3(-0.01f, 0.01f), Color.black);
     }
 #endif
 }
