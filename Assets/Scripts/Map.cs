@@ -10,11 +10,69 @@ public class Map : MonoBehaviour
     [SerializeField] private Tilemap tilemap;
     private static Map Instance;
 
+    /// <summary>
+    /// тайлы сквозь которые можно ходить / лазать
+    /// </summary>
     [SerializeField] private TileBase[] walkable;
+
+    /// <summary>
+    /// Типы окружения
+    /// </summary>
+    [SerializeField] private EnvType[] types;
+
+    [SerializeField] private List<GameObject> env = new List<GameObject>();
 
     private void Start()
     {
         Instance = this;
+        MakeAlive();
+    }
+
+
+    private bool GetType(TileBase tileBase, out EnvType et)
+    {
+        et = null;
+
+        if (tileBase == null)
+            return false;
+
+        for (int i = types.Length - 1; i >= 0; i--)
+        {
+            et = types[i];
+            if (et.tile.Equals(tileBase))
+                return true;
+        }
+
+        et = null;
+        return false;
+    }
+
+    private void MakeAlive()
+    {
+        Vector3Int v = Vector3Int.zero;
+        for (int i = -20; i < 20; i++)
+        {
+            v.x = i;
+            for (int j = -20; j < 20; j++)
+            {
+                v.y = j;
+                if (GetType(tilemap.GetTile(v), out EnvType type))
+                {
+                    if (type.activate == ActivateOn.Hero)
+                    {
+                        // set position 
+                        tilemap.SetTile(v, null);
+                    }
+                    else if (type.activate == ActivateOn.OnStart)
+                    {
+                        tilemap.SetTile(v, null);
+                        GameObject go = Instantiate(type.prefab, transform, true);
+                        go.transform.position = CellToWorld(v);
+                        env.Add(go);
+                    }
+                }
+            }
+        }
     }
 
     public static bool GetCell(Vector3 pos, out TileBase tb, out Vector3Int cell)
@@ -85,11 +143,11 @@ public class Map : MonoBehaviour
 
                 line += ",";
             }
+
             if (was)
                 data += $"{i}:{line}\r\n";
         }
 
         return data;
     }
-    
 }

@@ -14,6 +14,21 @@ TextureImporter:
   - first:
       213: 7350269465760345267
     second: Charger - 1x_3
+  - first:
+      213: 2732059101590094720
+    second: cb1
+  - first:
+      213: 8377975698014306619
+    second: cb2
+  - first:
+      213: 751443184963617339
+    second: cb3
+  - first:
+      213: 5082658941788018408
+    second: cb4
+  - first:
+      213: -3768501768604855076
+    second: Charger
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -202,6 +217,111 @@ TextureImporter:
       bones: []
       spriteID: 3bcab0eb227610660800000000000000
       internalID: 7350269465760345267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cb1
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 0
+        width: 34
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08386af17493ae520800000000000000
+      internalID: 2732059101590094720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cb2
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 0
+        width: 34
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b318ff8428c844470800000000000000
+      internalID: 8377975698014306619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cb3
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 0
+        width: 34
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3205ac6899ad6a00800000000000000
+      internalID: 751443184963617339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cb4
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 0
+        width: 34
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e6dcb3e06b398640800000000000000
+      internalID: 5082658941788018408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Charger
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 191
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd450ea9b9793bbc0800000000000000
+      internalID: -3768501768604855076
       vertices: []
       indices: 
       edges: []

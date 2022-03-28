@@ -9,7 +9,9 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="AlterHero.cs" t="Include" />
+          <e p="Checker.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
+          <e p="EnvType.cs" t="Include" />
           <e p="GameController.cs" t="Include" />
           <e p="Hero.cs" t="Include" />
           <e p="InputController.cs" t="Include" />

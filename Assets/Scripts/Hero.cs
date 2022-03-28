@@ -12,6 +12,8 @@ public class Hero : PCBase
     
     Vector3 delta = new Vector3(-0.15f, 0, 0);
 
+    public Vector3 CurrentCenter => transform.position + center;
+    
     public Vector3 position
     {
         get => transform.position + delta;
@@ -181,7 +183,7 @@ public class Hero : PCBase
         if (_flipping || !CanFlip())
             return;
 
-        if (Time.time - lastFlipTime < 1) // не меняться слишком часто
+        if (Time.time - lastFlipTime < 0.5f) // не меняться слишком часто
             return;
 
         lastFlipTime = Time.time;
