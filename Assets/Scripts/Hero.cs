@@ -131,6 +131,11 @@ public class Hero : PCBase
     private bool _flipping = false;
 
     /// <summary>
+    /// Происходит обмен телами
+    /// </summary>
+    public bool Flipping => _flipping;
+    
+    /// <summary>
     /// Когда последний раз был обмен
     /// </summary>
     private float lastFlipTime = 0;
@@ -187,6 +192,14 @@ public class Hero : PCBase
             return;
 
         lastFlipTime = Time.time;
+
+        if (GameController.Turns < 1)
+        {
+            GameController.HighLightTurns();
+            return;
+        }
+
+        GameController.Turns--;
         
         _flipping = true;
         StartCoroutine(FlipToPos(AlterHero.position));

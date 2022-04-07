@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Enemy : PCBase
+public class Enemy : PCBase, ITouchReceiver
 {
     [SerializeField] private int direction = 1;
     // Update is called once per frame
@@ -28,6 +28,11 @@ public class Enemy : PCBase
 
         Move(direction, 0);
         Rotate = direction > 0;
+    }
+
+    public void TouchAction(bool isHero)
+    {
+        
     }
 
 }
