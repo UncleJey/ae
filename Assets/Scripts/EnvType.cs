@@ -19,5 +19,7 @@ public class EnvType
     public TileBase tile;
     public GameObject prefab;
     public ActivateOn activate;
-    
+    public GameObject effect;
+    public float effectTime;
+
 }

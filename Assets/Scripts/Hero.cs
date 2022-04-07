@@ -157,7 +157,7 @@ public class Hero : PCBase
                 _flipping = false;
                 yield break;                
             }
-            transform.position = Vector3.MoveTowards(transform.position, pPosition, Time.deltaTime * 50 * speed);
+            transform.position = Vector3.MoveTowards(transform.position, pPosition, Time.deltaTime * 30 * speed);
             yield return null;
         }
         yield return null;

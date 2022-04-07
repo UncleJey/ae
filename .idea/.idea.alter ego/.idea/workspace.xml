@@ -29,9 +29,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/AlterHero.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Checker.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnvHolder.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EnvType.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Map.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnvType.cs" />
       </list>
     </option>
   </component>
