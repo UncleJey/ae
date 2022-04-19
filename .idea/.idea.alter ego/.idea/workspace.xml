@@ -34,7 +34,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TouchReceiver.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Env/TouchReceiver.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enums/CanTouch.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enums/TouchAction.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enums/ActivateOn.cs" />
@@ -43,6 +42,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Env/Point.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Map.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/GameController.cs" />
       </list>
     </option>
@@ -66,10 +66,10 @@
       <option name="pid" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="13332">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="13332" />
+      <option name="pid" />
       <method v="2" />
     </configuration>
   </component>

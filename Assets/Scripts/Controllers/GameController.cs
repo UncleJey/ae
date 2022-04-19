@@ -70,4 +70,9 @@ public class GameController : MonoBehaviour
         Hero = hero;
     }
 
+    public static void DieByEnemy(PCBase pToucher)
+    {
+        
+    }
+
 }

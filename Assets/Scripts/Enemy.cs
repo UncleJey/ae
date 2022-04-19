@@ -32,7 +32,7 @@ public class Enemy : PCBase, ITouchReceiver
 
     public void TouchAction(bool isHero)
     {
-        
+        GameController.DieByEnemy(this);
     }
 
 }
