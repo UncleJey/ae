@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Foranj.SDK.GUI;
 using UnityEngine;
 
 public abstract class GUIElement<TElementType> : GUIElementBase

@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Foranj.SDK.GUI
-{
     public abstract class WindowBase : GUIElement<WindowBase>
     {
         private Animator aAnimator;
@@ -332,4 +330,3 @@ namespace Foranj.SDK.GUI
             //WindowBackground.Show( Opened );
         }
     }
-}

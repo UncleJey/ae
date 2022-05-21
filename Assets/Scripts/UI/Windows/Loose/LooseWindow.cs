@@ -1,5 +1,4 @@
-﻿using Foranj.SDK.GUI;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class LooseWindow : WindowBase
