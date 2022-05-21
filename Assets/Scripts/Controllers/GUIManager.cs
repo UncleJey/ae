@@ -37,10 +37,6 @@ public class GUIManager : MonoBehaviour
     }
 
 
-    public static void UIReset(WindowBase pWindow)
-    {
-    }
-
     public static TWindowBase GetWindow<TWindowBase>() where TWindowBase : WindowBase
     {
         return GUIElement<WindowBase>.GetElement<TWindowBase>();

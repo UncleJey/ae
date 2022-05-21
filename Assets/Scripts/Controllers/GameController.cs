@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
 
     public static Hero Hero;
 
-    private static int _world=1, _level=1, _lives=3, _quads = 2, _turns=3;
+    private static int _world = 1, _level = 1, _lives = 3, _quads = 2, _turns = 3;
 
     private static GameController instance;
 
@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
         set
         {
             _quads = value;
-            instance.quadsText.text = "Quads: "+value;
+            instance.quadsText.text = "Quads: " + value;
         }
     }
 
@@ -46,7 +46,7 @@ public class GameController : MonoBehaviour
         await Task.Delay(300);
         instance.turnsText.color = Color.white;
     }
-    
+
     public static async void HighLightTurns()
     {
         for (int i = 0; i < 3; i++)
@@ -57,7 +57,7 @@ public class GameController : MonoBehaviour
             await Task.Delay(100);
         }
     }
-    
+
     private void Awake()
     {
         instance = this;
@@ -75,10 +75,8 @@ public class GameController : MonoBehaviour
     /// </summary>
     public static void DieByEnemy(PCBase pToucher)
     {
-        Debug.Log("DIE "+pToucher.name);
+        Debug.Log("DIE " + pToucher.name);
         Hero.Dead = true;
-        GUIManager.GetWindow<LooseWindow>().Open();
-
+        Delay.CallIn(() => { GUIManager.GetWindow<LooseWindow>().Open(); }, 1f);
     }
-
 }

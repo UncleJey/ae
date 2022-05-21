@@ -4,22 +4,22 @@ using UnityEngine.UI;
 public class LooseWindow : WindowBase
 {
     [SerializeField] private Text retryStr;
-    [SerializeField] private GameObject videoSprite;
+    [SerializeField] private Image videoSprite;
     [SerializeField] private Button btnExit, btnRetry;
-    
+    [SerializeField] private Sprite freeSprite, paidSprite;
     public override void OnOpen()
     {
         base.OnOpen();
         int turns = GameController.Turns;
         if (turns > 0)
         {
-            retryStr.text = $"Retry ({turns})";
-            videoSprite.gameObject.SetActive(false);
+            retryStr.text = $"Continue ({turns})";
+            videoSprite.sprite = freeSprite;
         }
         else
         {
-            retryStr.text = "Retry";
-            videoSprite.gameObject.SetActive(true);
+            retryStr.text = "Continue";
+            videoSprite.sprite = paidSprite;
         }
         
         btnRetry.onClick.AddListener(() =>

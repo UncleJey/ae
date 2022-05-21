@@ -40,7 +40,12 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="AlterHero.cs" t="Include" />
+          <e p="Characters" t="Include">
+            <e p="AlterHero.cs" t="Include" />
+            <e p="Enemy.cs" t="Include" />
+            <e p="Hero.cs" t="Include" />
+            <e p="PCBase.cs" t="Include" />
+          </e>
           <e p="Controllers" t="Include">
             <e p="AudioController.cs" t="Include" />
             <e p="CGIController.cs" t="Include" />
@@ -48,7 +53,6 @@
             <e p="GUIManager.cs" t="Include" />
             <e p="InputController.cs" t="Include" />
           </e>
-          <e p="Enemy.cs" t="Include" />
           <e p="Enums" t="Include">
             <e p="ActivateOn.cs" t="Include" />
             <e p="CanTouch.cs" t="Include" />
@@ -58,11 +62,16 @@
             <e p="ITouchReceiver.cs" t="Include" />
             <e p="Point.cs" t="Include" />
           </e>
-          <e p="EnvType.cs" t="Include" />
-          <e p="Extensions.cs" t="Include" />
-          <e p="Hero.cs" t="Include" />
-          <e p="Map.cs" t="Include" />
-          <e p="PCBase.cs" t="Include" />
+          <e p="Map" t="Include">
+            <e p="EnvType.cs" t="Include" />
+            <e p="Map.cs" t="Include" />
+          </e>
+          <e p="system" t="Include">
+            <e p="Clocks.cs" t="Include" />
+            <e p="Delay.cs" t="Include" />
+            <e p="DelayCondition.cs" t="Include" />
+            <e p="Extensions.cs" t="Include" />
+          </e>
           <e p="UI" t="Include">
             <e p="Windows" t="Include">
               <e p="Base" t="Include">
