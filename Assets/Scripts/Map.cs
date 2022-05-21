@@ -9,9 +9,9 @@ public class Map : MonoBehaviour
 {
     [SerializeField] private Grid grid;
     [SerializeField] private Tilemap tilemap;
-    private static Map Instance;
+    private static Map _instance;
 
-    public static Transform MapTransform => Instance.transform; 
+    public static Transform MapTransform => _instance.transform; 
     
     /// <summary>
     /// Дистанция для взаимодействия с объектом
@@ -21,7 +21,7 @@ public class Map : MonoBehaviour
     /// <summary>
     /// размер ячейки
     /// </summary>
-    public static Vector3 CellSize => Instance.grid.cellSize;
+    public static Vector3 CellSize => _instance.grid.cellSize;
 
     /// <summary>
     /// тайлы сквозь которые можно ходить / лазать
@@ -40,7 +40,7 @@ public class Map : MonoBehaviour
 
     private void Start()
     {
-        Instance = this;
+        _instance = this;
         MakeAlive();
     }
 
@@ -91,7 +91,7 @@ public class Map : MonoBehaviour
                     else if (type.activate == ActivateOn.OnStart)
                     {
                         tilemap.SetTile(v, null);
-                        Debug.Log("activate " + type.name);
+//                        Debug.Log("activate " + type.name);
 
                         GameObject go = Instantiate(type.prefab, transform, true);
                         go.transform.position = CellToWorld(v);
@@ -108,7 +108,7 @@ public class Map : MonoBehaviour
     /// <param name="go"></param>
     public static void DestoryObj(GameObject go)
     {
-        Instance.env.Remove(go);
+        _instance.env.Remove(go);
         GameObject.Destroy(go);
     }
 
@@ -117,8 +117,8 @@ public class Map : MonoBehaviour
     /// </summary>
     public static bool GetCell(Vector3 pos, out TileBase tb, out Vector3Int cell)
     {
-        cell = Instance.grid.WorldToCell(pos);
-        tb = Instance.tilemap.GetTile(cell);
+        cell = _instance.grid.WorldToCell(pos);
+        tb = _instance.tilemap.GetTile(cell);
         return tb != null;
     }
 
@@ -130,8 +130,8 @@ public class Map : MonoBehaviour
         if (tb == null)
             return nullIsTrue;
 
-        for (int i = Instance.walkable.Length - 1; i >= 0; i--)
-            if (Instance.walkable[i].Equals(tb))
+        for (int i = _instance.walkable.Length - 1; i >= 0; i--)
+            if (_instance.walkable[i].Equals(tb))
                 return true;
         return false;
     }
@@ -155,7 +155,7 @@ public class Map : MonoBehaviour
     /// </summary>
     public static Vector3 CellToWorld(Vector3Int pPoint)
     {
-        return Instance.grid.CellToWorld(pPoint);
+        return _instance.grid.CellToWorld(pPoint);
     }
 
     /// <summary>
@@ -163,7 +163,7 @@ public class Map : MonoBehaviour
     /// </summary>
     public static Vector3Int WorldToCell(Vector3 pPoint)
     {
-        return Instance.grid.WorldToCell(pPoint);
+        return _instance.grid.WorldToCell(pPoint);
     }
 
     /// <summary>
@@ -183,6 +183,9 @@ public class Map : MonoBehaviour
         if (GameController.Hero.Flipping)
             return;
 
+        if (GameController.Hero.Dead)
+            return;
+        
         for (int i = env.Count - 1; i >= 0; i--)
         {
             GameObject go = env[i];
@@ -219,7 +222,7 @@ public class Map : MonoBehaviour
             for (int j = -20; j < 20; j++)
             {
                 v.y = j;
-                TileBase tb = Instance.tilemap.GetTile(v);
+                TileBase tb = _instance.tilemap.GetTile(v);
                 if (tb != null)
                 {
                     line += tb.name;

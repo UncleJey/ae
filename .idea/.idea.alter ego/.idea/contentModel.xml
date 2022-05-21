@@ -42,8 +42,10 @@
         <e p="Scripts" t="Include">
           <e p="AlterHero.cs" t="Include" />
           <e p="Controllers" t="Include">
+            <e p="AudioController.cs" t="Include" />
             <e p="CGIController.cs" t="Include" />
             <e p="GameController.cs" t="Include" />
+            <e p="GUIManager.cs" t="Include" />
             <e p="InputController.cs" t="Include" />
           </e>
           <e p="Enemy.cs" t="Include" />
@@ -57,9 +59,21 @@
             <e p="Point.cs" t="Include" />
           </e>
           <e p="EnvType.cs" t="Include" />
+          <e p="Extensions.cs" t="Include" />
           <e p="Hero.cs" t="Include" />
           <e p="Map.cs" t="Include" />
           <e p="PCBase.cs" t="Include" />
+          <e p="UI" t="Include">
+            <e p="Windows" t="Include">
+              <e p="Base" t="Include">
+                <e p="GUIElement.cs" t="Include" />
+                <e p="WindowBase.cs" t="Include" />
+              </e>
+              <e p="Loose" t="Include">
+                <e p="LooseWindow.cs" t="Include" />
+              </e>
+            </e>
+          </e>
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />

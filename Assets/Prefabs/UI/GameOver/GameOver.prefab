@@ -122,13 +122,14 @@ GameObject:
   - component: {fileID: 3492150894994376983}
   - component: {fileID: 91884338236991319}
   - component: {fileID: 8100090597681848398}
+  - component: {fileID: 459964656078308989}
   m_Layer: 5
   m_Name: GameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6442610650990920890
 RectTransform:
   m_ObjectHideFlags: 0
@@ -170,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.78431374}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.8627451}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -205,6 +206,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &459964656078308989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775335587798011933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e0f87ef0eb535a41986f14f6bae60e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CloseSound: 
+  OpenSound: 
+  retryStr: {fileID: 6014874550752979186}
+  videoSprite: {fileID: 6374475016622086308}
+  btnExit: {fileID: 7592368059868558090}
+  btnRetry: {fileID: 1318995428961426916}
 --- !u!1 &1809984388161950323
 GameObject:
   m_ObjectHideFlags: 0

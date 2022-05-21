@@ -30,9 +30,13 @@ public class Enemy : PCBase, ITouchReceiver
         Rotate = direction > 0;
     }
 
+    /// <summary>
+    /// Произошёл контакт с ГГ
+    /// </summary>
     public void TouchAction(bool isHero)
     {
         GameController.DieByEnemy(this);
+        Atack = true;
     }
 
 }

@@ -70,9 +70,15 @@ public class GameController : MonoBehaviour
         Hero = hero;
     }
 
+    /// <summary>
+    /// Герой погибает от врага
+    /// </summary>
     public static void DieByEnemy(PCBase pToucher)
     {
-        
+        Debug.Log("DIE "+pToucher.name);
+        Hero.Dead = true;
+        GUIManager.GetWindow<LooseWindow>().Open();
+
     }
 
 }
