@@ -11,7 +11,14 @@ public static class Extensions
         return _list[_index];
     }
 
-
+    /// <summary>
+    /// Значение близко к нулю
+    /// </summary>
+    public static bool NearZero(this float f)
+    {
+        return f > -0.0001f && f < 0.0001f;
+    }
+    
     /// <summary>
     /// Вызывает делегат с предварительной проверкой на null, а так же try/except.
     /// Возвращает null если не было ошибок
